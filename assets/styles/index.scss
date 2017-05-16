@@ -1,2 +1,21 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+h1 {
+  text-align: center;
+
+}
+
+body {
+  margin: auto;
+  background-color: #808080;
+}
+
+.box {
+  border: 2px solid #000000;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  padding: 50px;
+
+}
