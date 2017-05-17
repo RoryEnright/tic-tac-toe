@@ -10,9 +10,10 @@ const signUp = function (data) {
     method: 'POST',
     data
   })
- .then((response) => {
-   console.log(response)
- })
+  // .then((response) => {
+  //   store.userToken = response.user.token
+  //   return store.userToken
+  // })
 }
 
 // const signIn = function (data) {
@@ -50,7 +51,7 @@ const signUp = function (data) {
 
 module.exports = {
   signUp
-  // signIn,
+  // signIn
   // signOut,
   // changePassword
 }
