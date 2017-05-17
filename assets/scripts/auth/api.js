@@ -23,22 +23,23 @@ const signIn = function (data) {
     data
   })
   .then((response) => {
-    console.log('This is the response when logging in: ', response)
+    console.log('Response is ', response)
     store.userToken = response.user.token
     store.id = response.user.id
   })
 }
 
-// const signOut = function () {
-//   return $.ajax({
-//     method: 'DELETE',
-//     url: config.ApiOrigin + '/sign-out/' + response.user.id,
-//     headers: {
-//       Authorization: 'Token token=' + response.user.token
-//     }
-//   })
-// }
-//
+const signOut = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiOrigin + '/sign-out/' + store.id,
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    },
+    data
+  })
+}
+
 // const changePassword = function (data) {
 //   return $.ajax({
 //     method: 'PATCH',
@@ -52,7 +53,7 @@ const signIn = function (data) {
 
 module.exports = {
   signUp,
-  signIn
-  // signOut,
+  signIn,
+  signOut
   // changePassword
 }
