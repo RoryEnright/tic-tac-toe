@@ -40,20 +40,20 @@ const signOut = function (data) {
   })
 }
 
-// const changePassword = function (data) {
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: config.ApiOrigin + '/change-password/' + response.user.id,
-//     headers: {
-//       Authorization: 'Token token=' + response.user.token
-//     },
-//     data: data
-//   })
-// }
+const changePassword = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiOrigin + '/change-password/' + store.id,
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    },
+    data
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
-  signOut
-  // changePassword
+  signOut,
+  changePassword
 }
