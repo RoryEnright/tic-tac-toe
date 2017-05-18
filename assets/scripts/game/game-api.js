@@ -21,8 +21,24 @@ const createGame = function () {
       Authorization: 'Token token=' + store.userToken
     }
   })
+  .then((response) => {
+    console.log('Response is ', response)
+    store.gameId = response.game.id
+  })
+}
+
+const updateGame = function (game) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiOrigin + '/games/' + store.gameId,
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    },
+    game
+  })
 }
 
 module.exports = {
-  createGame
+  createGame,
+  updateGame
 }

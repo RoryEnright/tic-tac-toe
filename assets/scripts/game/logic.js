@@ -1,16 +1,32 @@
 'use strict'
-// let turns = 0
-//
-// let nextTurn = 'X'
-//
-// const playerTurn = function () {
-//   if (nextTurn === 'X') {
-//     nextTurn = 'O'
-//   } else {
-//     nextTurn = 'X'
-//   }
+
+const player1 = 'X'
+const player2 = 'O'
+
+let currentPlayer = 'X'
+if (currentPlayer === 'X') {
+  currentPlayer = 'O'
+} else {
+  currentPlayer = 'X'
+}
+
+// const currentTurn = function (id) {
+//   $('#indexform').val(id)
+//   $('#moveForm').val(currentPlayer)
+//   currentPlayer = currentPlayer === player1 ? player2 : player1
+//   return currentPlayer
 // }
 
+// const updateCell = function () {
+//   if ($(this).html() === '' && $('#gameOverForm').val() === 'false') {
+//     const id = this.id
+//     $(this).html(currentPlayer)
+//     gameBoard[id] = currentPlayer
+//     currentTurn(id)
+//     turnCounter()
+//     $('#game_info').submit()
+//   }
+// }
 const cells = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
 
 const playerXWins = function () {
@@ -42,6 +58,10 @@ const playerOWins = function () {
     (cells[2] === 'O' && cells[4] === 'O' && cells[6] === 'O')) {
     return true
   }
+}
+const Draw = function () {
+  if(playerXWins === false && playerOwins === false || turnCounter === 9)
+  return 'Draw!'
 }
 
 // const gameOver = function () {
