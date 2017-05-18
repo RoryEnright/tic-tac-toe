@@ -13,6 +13,7 @@ const signInSuccess = (data) => {
   $('#sign-in').hide('slow')
   $('#sign-out').removeClass('hidden')
   $('#change-password').removeClass('hidden')
+  $('#create-game').removeClass('hidden')
 }
 
 const signInFailure = (error) => {
