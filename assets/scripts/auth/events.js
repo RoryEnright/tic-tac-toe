@@ -18,24 +18,24 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   console.log('this is data', data)
   api.signIn(data)
-  .then(ui.signInSuccess)
-  .catch(ui.signInFailure)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signOut(data)
-  .then(ui.signOutSuccess)
-  .catch(ui.signOutFailure)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.changePassword(data)
-  .then(ui.changePasswordSuccess)
-  .catch(ui.changePasswordFailure)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
 }
 
 const addHandlers = () => {

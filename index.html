@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
 
-    </head>
-    <body class="container-fluid">
-      <h1>Tic Tac Toe</h1>
+</head>
 
-      <form id="sign-up">
-              <fieldset>
-                <legend>Sign up!</legend>
-                <input type="text" name="credentials[email]" value="" placeholder="email">
-                <input type="password" name="credentials[password]" value="" placeholder="password">
-                <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
-                <input type="submit" name="submit" value="Sign up!">
-              </fieldset>
-            </form>
-            <br>
+<body class="container-fluid">
+  <h1>Tic Tac Toe</h1>
 
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <input type="text" name="credentials[email]" value="" placeholder="email">
-          <input type="password" name="credentials[password]" value="" placeholder="password">
-          <input type="submit" name="submit" value="Sign in!">
-        </fieldset>
-      </form>
-        <br>
+  <form id="sign-up">
+    <fieldset>
+      <legend>Sign up</legend>
+      <input type="text" name="credentials[email]" value="" placeholder="abc@example.com">
+      <input type="password" name="credentials[password]" value="" placeholder="password">
+      <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+      <input type="submit" name="submit" value="Sign up!">
+      <p class='hidden'>Email is already in use or make sure your password and confirmation match</p>
+    </fieldset>
+  </form>
+  <br>
 
-        <form id="sign-out">
-       <fieldset>
-         <legend>Sign out!</legend>
-         <input type="submit" name="submit" value="Sign out!">
-       </fieldset>
-     </form>
-     <br>
+  <form id="sign-in">
+    <fieldset>
+      <legend>Sign in</legend>
+      <input type="text" name="credentials[email]" value="" placeholder="abc@example.com">
+      <input type="password" name="credentials[password]" value="" placeholder="password">
+      <input type="submit" name="submit" value="Sign in!">
+    </fieldset>
+  </form>
+  <br>
 
-     <form id="change-password">
-        <fieldset>
-          <legend>Change Password</legend>
-          <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-          <input type="password" name="passwords[new]" value="" placeholder="New Password">
-          <input type="submit" name="submit" value="Change Password">
-        </fieldset>
-      </form>
-      <br>
+  <form id="sign-out" class="hidden">
+    <fieldset>
+      <legend>Sign out =(</legend>
+      <input type="submit" name="submit" value="Sign out!">
+    </fieldset>
+  </form>
+  <br>
 
-      <div class="row">
-               <div class="col-xs-4 box 0">topLeft______</div>
-               <div class="col-xs-4 box 1">topMid_______</div>
-               <div class="col-xs-4 box 2">topRight_____</div>
-             </div>
-             <div class="row">
-               <div class="col-xs-4 box 3">midLeft_____</div>
-               <div class="col-xs-4 box 4">midMid_______</div>
-               <div class="col-xs-4 box 5">midRight______</div>
-             </div>
-             <div class="row">
-               <div class="col-xs-4 box 6">botLeft______</div>
-               <div class="col-xs-4 box 7">botMid______</div>
-               <div class="col-xs-4 box 8">botRight____</div>
-             </div>
+  <form id="change-password" class='hidden'>
+    <fieldset>
+      <legend>Change Password</legend>
+      <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+      <input type="password" name="passwords[new]" value="" placeholder="New Password">
+      <input type="submit" name="submit" value="Change Password">
+    </fieldset>
+  </form>
+  <br>
 
-    </body>
+  <div class="row">
+    <div class="col-xs-4 box 0">topLeft______</div>
+    <div class="col-xs-4 box 1">topMid_______</div>
+    <div class="col-xs-4 box 2">topRight_____</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 box 3">midLeft_____</div>
+    <div class="col-xs-4 box 4">midMid_______</div>
+    <div class="col-xs-4 box 5">midRight______</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 box 6">botLeft______</div>
+    <div class="col-xs-4 box 7">botMid______</div>
+    <div class="col-xs-4 box 8">botRight____</div>
+  </div>
+
+</body>
+
 </html>

@@ -10,23 +10,18 @@ const signUp = function (data) {
     method: 'POST',
     data
   })
-  // .then((response) => {
-  //   store.userToken = response.user.token
-  //   return store.userToken
-  // })
 }
-
 const signIn = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
     data
   })
-  .then((response) => {
-    console.log('Response is ', response)
-    store.userToken = response.user.token
-    store.id = response.user.id
-  })
+    .then((response) => {
+      console.log('Response is ', response)
+      store.userToken = response.user.token
+      store.id = response.user.id
+    })
 }
 
 const signOut = function (data) {

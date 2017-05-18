@@ -1,7 +1,7 @@
 'use strict'
 
 const signUpSuccess = (data) => {
-  console.log(data)
+  $('#sign-up').hide('slow')
 }
 
 const signUpFailure = (error) => {
@@ -9,7 +9,10 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  console.log('this is data', data)
+  $('#sign-up').hide('slow')
+  $('#sign-in').hide('slow')
+  $('#sign-out').removeClass('hidden')
+  $('#change-password').removeClass('hidden')
 }
 
 const signInFailure = (error) => {
@@ -17,7 +20,9 @@ const signInFailure = (error) => {
 }
 
 const signOutSuccess = (data) => {
-  console.log('this is data', data)
+  $('#sign-in').show('slow')
+  $('#sign-up').show('slow')
+  $('#sign-out').addClass('hidden')
 }
 
 const signOutFailure = (error) => {
