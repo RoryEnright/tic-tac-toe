@@ -1,15 +1,15 @@
 'use strict'
-let turns = 0
-
-let nextTurn = 'X'
-
-const playerTurn = function () {
-  if (nextTurn === 'X') {
-    nextTurn = 'O'
-  } else {
-    nextTurn = 'X'
-  }
-}
+// let turns = 0
+//
+// let nextTurn = 'X'
+//
+// const playerTurn = function () {
+//   if (nextTurn === 'X') {
+//     nextTurn = 'O'
+//   } else {
+//     nextTurn = 'X'
+//   }
+// }
 
 const cells = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
 
@@ -43,10 +43,11 @@ const playerOWins = function () {
     return true
   }
 }
-const gameOver = function () {
-  if (playerXWins === true)
-} else if (playerOwins === true)
-} else if ()
+
+// const gameOver = function () {
+//   if (playerXWins === true)
+// } else if (playerOwins === true)
+// } else if ()
 
 module.exports = {
   playerXWins,
