@@ -4,29 +4,14 @@ const player1 = 'X'
 const player2 = 'O'
 
 let currentPlayer = 'X'
-if (currentPlayer === 'X') {
-  currentPlayer = 'O'
-} else {
-  currentPlayer = 'X'
+const switchPlayers = function () {
+  if (currentPlayer === 'X') {
+    currentPlayer = 'O'
+  } else {
+    currentPlayer = 'X'
+  }
 }
 
-// const currentTurn = function (id) {
-//   $('#indexform').val(id)
-//   $('#moveForm').val(currentPlayer)
-//   currentPlayer = currentPlayer === player1 ? player2 : player1
-//   return currentPlayer
-// }
-
-// const updateCell = function () {
-//   if ($(this).html() === '' && $('#gameOverForm').val() === 'false') {
-//     const id = this.id
-//     $(this).html(currentPlayer)
-//     gameBoard[id] = currentPlayer
-//     currentTurn(id)
-//     turnCounter()
-//     $('#game_info').submit()
-//   }
-// }
 const cells = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
 
 const playerXWins = function () {
@@ -42,8 +27,11 @@ const playerXWins = function () {
     (cells[0] === 'X' && cells[4] === 'X' && cells[8] === 'X') ||
     (cells[2] === 'X' && cells[4] === 'X' && cells[6] === 'X')) {
     return true
+  } else {
+    return false
   }
 }
+
 const playerOWins = function () {
   // rows
   if ((cells[0] === 'O' && cells[1] === 'O' && cells[2] === 'O') ||
@@ -57,11 +45,15 @@ const playerOWins = function () {
     (cells[0] === 'O' && cells[4] === 'O' && cells[8] === 'O') ||
     (cells[2] === 'O' && cells[4] === 'O' && cells[6] === 'O')) {
     return true
+  } else {
+    return false
   }
 }
-const Draw = function () {
-  if(playerXWins === false && playerOwins === false || turnCounter === 9)
-  return 'Draw!'
+
+const draw = function () {
+  if (playerXWins === false && playerOwins === false || turnCounter === 9) {
+    return 'Draw!'
+  }
 }
 
 // const gameOver = function () {
@@ -70,6 +62,8 @@ const Draw = function () {
 // } else if ()
 
 module.exports = {
+  switchPlayers,
   playerXWins,
-  playerOWins
+  playerOWins,
+  draw
 }
