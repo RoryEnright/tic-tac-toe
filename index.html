@@ -21,7 +21,7 @@
   <form id="sign-up">
     <fieldset>
       <legend>Sign up</legend>
-      <input type="text" name="credentials[email]" value="" placeholder="abc@example.com">
+      <input type="email" name="credentials[email]" value="" placeholder="abc@example.com">
       <input type="password" name="credentials[password]" value="" placeholder="password">
       <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
       <input type="submit" name="submit" value="Sign up!">
@@ -62,23 +62,23 @@
 
 <button id="create-game" class='hidden'>Start Game</button>
 <br>
-
+<div class="gameboard">
   <div class="row">
-    <div class="col-xs-4 box" id='0'>+</div>
-    <div class="col-xs-4 box" id='1'>+</div>
-    <div class="col-xs-4 box" id='2'>+</div>
+    <div class="col-xs-4 box" id='0' data-id=0>+</div>
+    <div class="col-xs-4 box" id='1' data-id=1>+</div>
+    <div class="col-xs-4 box" id='2' data-id=2>+</div>
   </div>
   <div class="row">
-    <div class="col-xs-4 box" id='3'>+</div>
-    <div class="col-xs-4 box" id='4'>+</div>
-    <div class="col-xs-4 box" id='5'>+</div>
+    <div class="col-xs-4 box" id='3' data-id=3>+</div>
+    <div class="col-xs-4 box" id='4' data-id=4>+</div>
+    <div class="col-xs-4 box" id='5' data-id=5>+</div>
   </div>
   <div class="row">
-    <div class="col-xs-4 box" id='6'>+</div>
-    <div class="col-xs-4 box" id='7'>+</div>
-    <div class="col-xs-4 box" id='8'>+</div>
+    <div class="col-xs-4 box" id='6' data-id=6>+</div>
+    <div class="col-xs-4 box" id='7' data-id=7>+</div>
+    <div class="col-xs-4 box" id='8' data-id=8>+</div>
   </div>
-
+</div>
   <form id='updateForm' class='hidden'>
   <input id='indexForm' name="game[cell][index]" type="text" value="0">
   <input id='moveForm' name="game[cell][value]" type="text" value="x">

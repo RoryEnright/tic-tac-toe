@@ -1,6 +1,6 @@
 'use strict'
 
-const createGameSuccess = () => {
+const createGameSuccess = (data) => {
   console.log('game created!')
 }
 
@@ -8,17 +8,17 @@ const createGameFailure = (error) => {
   console.error(error)
 }
 
-const updateGameSuccess = () => {
+const cellSelectSuccess = (data) => {
   console.log('game updated!')
 }
 
-const updateGameFailure = (error) => {
+const cellSelectFailure = (error) => {
   console.error(error)
 }
 
 module.exports = {
   createGameSuccess,
   createGameFailure,
-  updateGameSuccess,
-  updateGameFailure
+  cellSelectSuccess,
+  cellSelectFailure
 }
