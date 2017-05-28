@@ -3,15 +3,6 @@
 const config = require('../config')
 const store = require('../store')
 
-// const gameIndex = function (game) {
-//   console.log(game)
-//   return $.ajax({
-//     url: config.apiOrigin + '/games[?over=]/',
-//     method: 'GET',
-//     games
-//   })
-// }
-
 const createGame = function (data) {
   console.log('game creating')
   return $.ajax({
@@ -24,15 +15,29 @@ const createGame = function (data) {
   })
   .then((response) => {
     console.log('Response is ', response)
-    store.gameId = response.game.id
+    store.game = response.game
     store.over = response.over
   })
 }
 
+// const gameIndex = function (data) {
+//   return $.ajax({
+//     url: config.apiOrigin + '/games',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.userToken
+//     },
+//     data
+//   })
+//   .then((response) => {
+//
+//   })
+// }
+
 const updateGame = function (data) {
   return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
-    url: config.apiOrigin + '/games/' + store.gameId,
     headers: {
       Authorization: 'Token token=' + store.userToken
     },
@@ -40,7 +45,8 @@ const updateGame = function (data) {
     {'cell':
     {'index': store.game.cell.index, 'value': store.game.cell.value
     }
-    }
+    },
+      'over': store.game.over
     }
   })
   .then((response) => {
@@ -49,6 +55,7 @@ const updateGame = function (data) {
 }
 
 module.exports = {
+  // gameIndex,
   createGame,
   updateGame
 }

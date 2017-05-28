@@ -25,17 +25,18 @@ const onCreateGame = function (event) {
 const switchPlayers = function () {
   if (store.currentPlayer === 'X') {
     store.game.cell.value = 'X'
+    store.currentPlayer = 'O'
   } else {
     store.game.cell.value = 'O'
+    store.currentPlayer = 'X'
   }
 }
 
 const onSelectCell = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(store.game.cell)
   store.game.cell = {}
-  store.game.cell.index = this.dataset.id
+  store.game.cell.index = this.dataset.game
   switchPlayers()
   store.moves++
   $(this).text(store.game.cell.value)
