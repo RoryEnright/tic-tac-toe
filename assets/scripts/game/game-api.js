@@ -50,6 +50,7 @@ const updateGame = function (data) {
     }
   })
   .then((response) => {
+    console.log('Response is ', response)
     store.game.cells = response.game.cells
   })
 }

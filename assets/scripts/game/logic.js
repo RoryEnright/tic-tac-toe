@@ -1,57 +1,55 @@
 'use strict'
 
-const cells = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
+const store = require('../store')
 
-const playerXWins = function () {
-  // rows
-  if ((cells[0] === 'X' && cells[1] === 'X' && cells[2] === 'X') ||
-    (cells[3] === 'X' && cells[4] === 'X' && cells[5] === 'X') ||
-    (cells[6] === 'X' && cells[7] === 'X' && cells[8] === 'X') ||
-// columns
-    (cells[0] === 'X' && cells[3] === 'X' && cells[6] === 'X') ||
-    (cells[1] === 'X' && cells[4] === 'X' && cells[7] === 'X') ||
-    (cells[2] === 'X' && cells[5] === 'X' && cells[8] === 'X') ||
-    // diagonal
-    (cells[0] === 'X' && cells[4] === 'X' && cells[8] === 'X') ||
-    (cells[2] === 'X' && cells[4] === 'X' && cells[6] === 'X')) {
-    return true
+const switchPlayers = function () {
+  if (store.currentPlayer === 'X') {
+    store.game.cell.value = 'X'
+    store.currentPlayer = 'O'
   } else {
-    return false
+    store.game.cell.value = 'O'
+    store.currentPlayer = 'X'
   }
 }
 
-const playerOWins = function () {
+const whoWins = function () {
   // rows
-  if ((cells[0] === 'O' && cells[1] === 'O' && cells[2] === 'O') ||
-    (cells[3] === 'O' && cells[4] === 'O' && cells[5] === 'O') ||
-    (cells[6] === 'O' && cells[7] === 'O' && cells[8] === 'O') ||
+  if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
+    (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
+    (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
 // columns
-    (cells[0] === 'O' && cells[3] === 'O' && cells[6] === 'O') ||
-    (cells[1] === 'O' && cells[4] === 'O' && cells[7] === 'O') ||
-    (cells[2] === 'O' && cells[5] === 'O' && cells[8] === 'O') ||
+    (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') ||
+    (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') ||
+    (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
     // diagonal
-    (cells[0] === 'O' && cells[4] === 'O' && cells[8] === 'O') ||
-    (cells[2] === 'O' && cells[4] === 'O' && cells[6] === 'O')) {
-    return true
+    (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
+    (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
+    store.winner = 'X'
+    store.game.over = true
+    return store.game.over
+  } else if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
+    (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
+    (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') ||
+// columns
+    (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') ||
+    (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') ||
+    (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') ||
+    // diagonal
+    (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
+    (store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O')) {
+    store.winner = 'O'
+    store.game.over = true
+  } else if (store.moves > 8) {
+    store.winner = 'Draw'
+    store.game.over = true
+    return store.game.over
   } else {
-    return false
+    store.game.over = false
+    return store.game.over
   }
 }
-
-const draw = function () {
-  if (playerXWins === false && playerOwins === false || turnCounter === 9) {
-    return 'Draw!'
-  }
-}
-
-// const gameOver = function () {
-//   if (playerXWins === true)
-// } else if (playerOwins === true)
-// } else if ()
 
 module.exports = {
-  switchPlayers,
-  playerXWins,
-  playerOWins,
-  draw
+  whoWins,
+  switchPlayers
 }
