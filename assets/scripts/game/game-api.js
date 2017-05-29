@@ -14,13 +14,13 @@ const createGame = function (data) {
     data: '{}'
   })
   .then((response) => {
-    console.log('Response is ', response)
+    console.log('create game Response', response)
     store.game = response.game
     store.over = response.over
   })
 }
 
-const gameIndex = function (data) {
+const getIndex = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',
@@ -30,7 +30,7 @@ const gameIndex = function (data) {
   })
   .then((response) => {
     store.gamesPlayed = response.games.length
-    $('#gamesPlayed').text(response.games.length)
+    $('#gamesPlayed').text('Games Played: ' + store.gamesPlayed)
     store.games = response.games
   })
 }
@@ -57,7 +57,7 @@ const updateGame = function (data) {
 }
 
 module.exports = {
-  gameIndex,
+  getIndex,
   createGame,
   updateGame
 }

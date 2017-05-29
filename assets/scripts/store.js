@@ -5,9 +5,7 @@ const store = {
 
 const currentPlayer = 'X'
 
-const moves = 1
-
-const gamesPlayed = 1
+const moves = 0
 
 const over = false
 
@@ -23,7 +21,7 @@ module.exports = {
   store,
   currentPlayer,
   moves,
-  gamesPlayed,
+//  gamesPlayed,
   over,
   winner,
   gamesWon,
