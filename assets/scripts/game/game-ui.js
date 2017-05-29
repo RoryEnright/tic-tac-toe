@@ -4,17 +4,18 @@ const logic = require('./logic')
 const gameEvents = require('./game-events')
 
 const createGameSuccess = (data) => {
-  console.log('game created!')
+  $('#message').text('Player X goes first')
+  $('#create-game').addClass('hidden')
+  // store.gamesPlayed++
+  // $('#gamesPlayed').text('Games Played: ' + store.gamesPlayed)
 }
 
-const createGameFailure = (error) => {
-  console.error(error)
+const createGameFailure = () => {
+  $('#message').text('Please try "Start Game" again')
 }
 
 const updateGameSuccess = (data) => {
   logic.whoWins()
-  console.log('game passes through logic!')
-  console.log(store.game.over)
   if (store.game.over === true) {
     $('#0').off('click', gameEvents.onSelectCell)
     $('#1').off('click', gameEvents.onSelectCell)
@@ -26,7 +27,10 @@ const updateGameSuccess = (data) => {
     $('#7').off('click', gameEvents.onSelectCell)
     $('#8').off('click', gameEvents.onSelectCell)
     $('#message').text('Player ' + store.winner + ' is the winner!')
-    console.log(store.winner)
+    $('#gamesPlayed').text('Games Played: ' + store.gamesPlayed + ' ')
+    $('#gamesWon').text('Wins: ' + store.gamesWon + ' ')
+    $('#gamesLost').text('Losses: ' + store.gamesLost + ' ')
+    $('#gamesDraw').text('Draws: ' + store.gamesDraw + ' ')
   }
 }
 
@@ -34,24 +38,9 @@ const updateGameFailure = (error) => {
   console.error(error)
 }
 
-const gameOverSuccess = () => {
-  if (store.winner === 'X') {
-    $('message').text('Player X wins!')
-  } else if (store.winner === 'O') {
-    $('message').text('Player O wins!')
-  } else if (store.winner === 'Draw') {
-    $('message').text('Game is a draw!')
-  }
-}
-const gameOverFailure = (error) => {
-  console.error(error)
-}
-
 module.exports = {
   createGameSuccess,
   createGameFailure,
   updateGameSuccess,
-  updateGameFailure,
-  gameOverSuccess,
-  gameOverFailure
+  updateGameFailure
 }

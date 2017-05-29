@@ -20,19 +20,20 @@ const createGame = function (data) {
   })
 }
 
-// const gameIndex = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.userToken
-//     },
-//     data
-//   })
-//   .then((response) => {
-//
-//   })
-// }
+const gameIndex = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    }
+  })
+  .then((response) => {
+    store.gamesPlayed = response.games.length
+    $('#gamesPlayed').text(response.games.length)
+    store.games = response.games
+  })
+}
 
 const updateGame = function (data) {
   return $.ajax({
@@ -56,7 +57,7 @@ const updateGame = function (data) {
 }
 
 module.exports = {
-  // gameIndex,
+  gameIndex,
   createGame,
   updateGame
 }

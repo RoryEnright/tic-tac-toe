@@ -25,6 +25,7 @@ const whoWins = function () {
     (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
     (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
     store.winner = 'X'
+    store.gamesWon++
     store.game.over = true
     return store.game.over
   } else if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
@@ -38,9 +39,11 @@ const whoWins = function () {
     (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
     (store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O')) {
     store.winner = 'O'
+    store.gamesLost++
     store.game.over = true
   } else if (store.moves > 8) {
     store.winner = 'Draw'
+    store.gamesDraw++
     store.game.over = true
     return store.game.over
   } else {

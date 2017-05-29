@@ -37,25 +37,6 @@ const onSelectCell = function (event) {
   .catch(gameUi.updateGameFailure)
 }
 
-// const gameOver = function (event) {
-//   if (store.game.over === 1) {
-//     $('#0').off('click', onSelectCell)
-//     $('#1').off('click', onSelectCell)
-//     $('#2').off('click', onSelectCell)
-//     $('#3').off('click', onSelectCell)
-//     $('#4').off('click', onSelectCell)
-//     $('#5').off('click', onSelectCell)
-//     $('#6').off('click', onSelectCell)
-//     $('#7').off('click', onSelectCell)
-//     $('#8').off('click', onSelectCell)
-//     const data = getFormFields(event.target)
-//     gameUi.gameOverSuccess(data)
-//     gameApi.updateGame(data)
-//       .then(gameUi.updateGameSuccess)
-//       .catch(gameUi.updateGameFailure)
-//   }
-// }
-
 const gameHandlers = () => {
   $('#create-game').on('click', onCreateGame)
   $('#update-game').on('click', onSelectCell)
@@ -63,6 +44,5 @@ const gameHandlers = () => {
 
 module.exports = {
   gameHandlers,
-  onSelectCell,
-  // gameOver
+  onSelectCell
 }

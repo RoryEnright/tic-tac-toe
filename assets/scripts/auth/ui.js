@@ -1,11 +1,13 @@
 'use strict'
+// const store = require('../store')
 
 const signUpSuccess = (data) => {
   $('#sign-up').hide('slow')
+  $('#message').text('Thanks for signing up!  Please sign in')
 }
 
-const signUpFailure = (error) => {
-  console.error(error)
+const signUpFailure = () => {
+  $('#message').text('Email already taken or check that passwords match')
 }
 
 const signInSuccess = (data) => {
@@ -14,28 +16,32 @@ const signInSuccess = (data) => {
   $('#sign-out').removeClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#create-game').removeClass('hidden')
+  $('#gameStats').removeClass('hidden')
+  $('#message').text('Click on "start game" to get rolling')
 }
 
-const signInFailure = (error) => {
-  console.error(error)
+const signInFailure = () => {
+  $('#message').text('Please check email and password')
 }
 
 const signOutSuccess = (data) => {
   $('#sign-in').show('slow')
   $('#sign-up').show('slow')
   $('#sign-out').addClass('hidden')
+  $('#message').text('Please sign up or sign in')
+  $('#gameStats').addClass('hidden')
 }
 
-const signOutFailure = (error) => {
-  console.error(error)
+const signOutFailure = () => {
+  $('#message').text('Try signing out again')
 }
 
 const changePasswordSuccess = (data) => {
-  console.log('this is data', data)
+  $('#message').text('Password has been updated')
 }
 
-const changePasswordFailure = (error) => {
-  console.error(error)
+const changePasswordFailure = () => {
+  $('#message').text('Make sure your passwords match and try again')
 }
 
 module.exports = {

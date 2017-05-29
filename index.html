@@ -60,6 +60,14 @@
 <h3 id="message">Please sign up or Sign in</h3>
 <br>
 
+<div id='gameStats' class='hidden'>
+  <span id='gamesPlayed'>Games Played: 0</span>
+  <span id='gamesWon'>Wins: 0</span>
+  <span id='gamesLost'>Losses: 0</span>
+  <span id='gamesDraw'>Draws: 0</span>
+</div>
+<br>
+
 <button id="create-game" class='hidden'>Start Game</button>
 <br>
 <div class="gameboard">
@@ -79,6 +87,10 @@
     <div class="col-xs-4 box" id='8' data-id=8>+</div>
   </div>
 </div>
+<br>
+
+
+
   <form id='updateForm' class='hidden'>
   <input id='indexForm' name="game[cell][index]" type="text" value="0">
   <input id='moveForm' name="game[cell][value]" type="text" value="x">
