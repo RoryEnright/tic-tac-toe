@@ -6,11 +6,15 @@ const gameApi = require('./game-api')
 
 const createGameSuccess = (data) => {
   $('#message').text('Player X goes first')
-  $('#create-game').addClass('hidden')
-  // $('#reset-board').removeClass('hidden')
-  // gameApi.getIndex(data)
-  //   .then(getIndexSucess)
-  //   .catch(getIndexFailure)
+  $('#create-game').fadeOut('slow', function () {
+    $(this).addClass('hidden')
+    $('#row1').fadeIn(500).removeClass('hidden')
+    $('#row2').fadeIn(1500).removeClass('hidden')
+    $('#row3').fadeIn(2000).removeClass('hidden')
+  })
+  $('#change-password').fadeOut('slow', function () {
+    $(this).addClass('hidden')
+  })
 }
 
 const createGameFailure = () => {
@@ -28,19 +32,19 @@ const clearBoardSuccess = (data) => {
   .catch(getIndexFailure)
 }
 
-const clearBoardFailure = (error) => {
-  console(error).error
+const clearBoardFailure = () => {
 }
 
 const getIndexSuccess = (data) => {
 }
 
-const getIndexFailure = (error) => {
-  console(error).error
+const getIndexFailure = () => {
+
 }
 
 const updateGameSuccess = (data) => {
   logic.whoWins()
+  $('#message').text('It is ' + store.currentPlayer + "'s turn")
   if (store.game.over === true) {
     $('#0').off('click', gameEvents.onSelectCell)
     $('#1').off('click', gameEvents.onSelectCell)
@@ -54,19 +58,18 @@ const updateGameSuccess = (data) => {
     $('#message').text(store.winner)
     $('#gamesLost').text('Losses: ' + store.gamesLost + ' ')
     $('#gamesDraw').text('Draws: ' + store.gamesDraw + ' ')
-    $('#create-game').removeClass('hidden')
+    $('#create-game').fadeIn('slow', function () {
+      $(this).removeClass('hidden')
+    })
     store.gamesPlayed++
     $('#gamesPlayed').text('Games Played: ' + store.gamesPlayed)
-    // $('#reset-board').addClass('hidden')
     gameApi.updateGame()
     .then(getIndexSuccess)
     .catch(getIndexFailure)
   }
-  console.log(store.moves)
 }
 
-const updateGameFailure = (error) => {
-  console.error(error)
+const updateGameFailure = () => {
 }
 
 module.exports = {

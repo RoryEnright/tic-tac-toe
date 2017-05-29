@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const signUp = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up/',
     method: 'POST',
@@ -18,7 +17,6 @@ const signIn = function (data) {
     data
   })
     .then((response) => {
-      console.log('Response is ', response)
       store.userToken = response.user.token
       store.id = response.user.id
     })

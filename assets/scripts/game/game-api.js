@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const createGame = function (data) {
-  console.log('game creating')
   return $.ajax({
     url: config.apiOrigin + '/games/',
     method: 'POST',
@@ -14,7 +13,6 @@ const createGame = function (data) {
     data: '{}'
   })
   .then((response) => {
-    console.log('create game Response', response)
     store.game = response.game
     store.over = response.over
   })
@@ -51,7 +49,6 @@ const updateGame = function (data) {
     }
   })
   .then((response) => {
-    console.log('Response is ', response)
     store.game.cells = response.game.cells
   })
 }

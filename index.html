@@ -62,40 +62,31 @@
 
 <div id='gameStats' class='hidden'>
   <span id='gamesPlayed'>Games Played: 0</span>
-  <span id='gamesWon'>Wins: 0</span>
+  <!-- <span id='gamesWon'>Wins: 0</span>
   <span id='gamesLost'>Losses: 0</span>
-  <span id='gamesDraw'>Draws: 0</span>
+  <span id='gamesDraw'>Draws: 0</span> -->
 </div>
 <br>
 <button id="create-game" class='hidden'>Start Game</button>
 <button id='reset-board' class='hidden'>Reset Gameboard</button>
 <br>
-<div class="gameboard">
-  <div class="row">
+<div class='gameboard'>
+  <div id="row1" class='hidden'>
     <div class="col-xs-4 box" id='0' data-id=0>+</div>
     <div class="col-xs-4 box" id='1' data-id=1>+</div>
     <div class="col-xs-4 box" id='2' data-id=2>+</div>
   </div>
-  <div class="row">
+  <div id="row2" class='hidden'>
     <div class="col-xs-4 box" id='3' data-id=3>+</div>
     <div class="col-xs-4 box" id='4' data-id=4>+</div>
     <div class="col-xs-4 box" id='5' data-id=5>+</div>
   </div>
-  <div class="row">
+  <div id="row3" class='hidden'>
     <div class="col-xs-4 box" id='6' data-id=6>+</div>
     <div class="col-xs-4 box" id='7' data-id=7>+</div>
     <div class="col-xs-4 box" id='8' data-id=8>+</div>
   </div>
 </div>
-<br>
-
-
-
-  <form id='updateForm' class='hidden'>
-  <input id='indexForm' name="game[cell][index]" type="text" value="0">
-  <input id='moveForm' name="game[cell][value]" type="text" value="x">
-  <input id='gameOverForm' name="game[over]" type="text" value="false">
-</form>
 
 </body>
 

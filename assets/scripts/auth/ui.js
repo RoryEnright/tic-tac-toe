@@ -13,12 +13,24 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = (data) => {
-  $('#sign-up').hide('slow')
-  $('#sign-in').hide('slow')
-  $('#sign-out').removeClass('hidden')
-  $('#change-password').removeClass('hidden')
-  $('#create-game').removeClass('hidden')
-  $('#gameStats').removeClass('hidden')
+  $('#sign-up').fadeOut('slow', function () {
+    $(this).addClass('hidden')
+  })
+  $('#sign-in').fadeOut('slow', function () {
+    $(this).addClass('hidden')
+  })
+  $('#change-password').fadeIn('slow', function () {
+    $(this).removeClass('hidden')
+  })
+  $('#create-game').fadeIn('slow', function () {
+    $(this).removeClass('hidden')
+  })
+  $('#gameStats').fadeIn('slow', function () {
+    $(this).removeClass('hidden')
+  })
+  $('#sign-out').fadeIn('slow', function () {
+    $(this).removeClass('hidden')
+  })
   $('#message').text('Click on "start game" to get rolling')
   gameApi.getIndex()
   .then(gameUi.getIndexSucess)
@@ -26,15 +38,25 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = () => {
-  $('#message').text('Please check email and password')
+  $('#message').text('Please check email and password or sign up again')
+  $('#sign-up').show('slow')
 }
 
 const signOutSuccess = (data) => {
-  $('#sign-in').show('slow')
+  $('#sign-in').fadeIn('slow', function () {
+    $(this).removeClass('hidden')
+  })
   $('#sign-up').show('slow')
-  $('#sign-out').addClass('hidden')
+  $('#sign-up').fadeIn('slow', function () {
+    $(this).removeClass('hidden')
+  })
+  $('#sign-out').fadeOut('slow', function () {
+    $(this).addClass('hidden')
+  })
   $('#message').text('Please sign up or sign in')
-  $('#gameStats').addClass('hidden')
+  $('#gameStats').fadeOut('slow', function () {
+    $(this).addClass('hidden')
+  })
   $('#0').off('click', gameEvents.onSelectTile).text('+')
   $('#1').off('click', gameEvents.onSelectTile).text('+')
   $('#2').off('click', gameEvents.onSelectTile).text('+')
