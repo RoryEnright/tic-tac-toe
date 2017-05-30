@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+</head>
+
+<body class="container-fluid">
+  <h1>Tic Tac Toe</h1>
+<br>
+  <form id="sign-up">
+    <fieldset>
+      <legend>Sign up</legend>
+      <input type="email" name="credentials[email]" value="" placeholder="abc@example.com">
+      <input type="password" name="credentials[password]" value="" placeholder="password">
+      <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+      <input type="submit" name="submit" value="Sign up!">
+    </fieldset>
+  </form>
+  <br>
+
+  <form id="sign-in">
+    <fieldset>
+      <legend>Sign in</legend>
+      <input type="text" name="credentials[email]" value="" placeholder="abc@example.com">
+      <input type="password" name="credentials[password]" value="" placeholder="password">
+      <input type="submit" name="submit" value="Sign in!">
+    </fieldset>
+  </form>
+  <br>
+
+  <form id="sign-out" class="hidden">
+    <fieldset>
+      <legend>Sign out</legend>
+      <input type="submit" name="submit" value="Sign out!">
+    </fieldset>
+  </form>
+  <br>
+
+  <form id="change-password" class='hidden'>
+    <fieldset>
+      <legend>Change Password</legend>
+      <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+      <input type="password" name="passwords[new]" value="" placeholder="New Password">
+      <input type="submit" name="submit" value="Change Password">
+    </fieldset>
+  </form>
+  <br>
+
+<h3 id="message">Please sign up or Sign in</h3>
+<br>
+
+<div id='gameStats' class='hidden'>
+  <span id='gamesPlayed'>Games Played: 0</span>
+  <!-- <span id='gamesWon'>Wins: 0</span>
+  <span id='gamesLost'>Losses: 0</span>
+  <span id='gamesDraw'>Draws: 0</span> -->
+</div>
+<br>
+<button id="create-game" class='hidden'>Start Game</button>
+<button id='reset-board' class='hidden'>Reset Gameboard</button>
+<br>
+<div class='gameboard'>
+  <div id="row1" class='hidden'>
+    <div class="col-xs-4 box" id='0' data-id=0>+</div>
+    <div class="col-xs-4 box" id='1' data-id=1>+</div>
+    <div class="col-xs-4 box" id='2' data-id=2>+</div>
+  </div>
+  <div id="row2" class='hidden'>
+    <div class="col-xs-4 box" id='3' data-id=3>+</div>
+    <div class="col-xs-4 box" id='4' data-id=4>+</div>
+    <div class="col-xs-4 box" id='5' data-id=5>+</div>
+  </div>
+  <div id="row3" class='hidden'>
+    <div class="col-xs-4 box" id='6' data-id=6>+</div>
+    <div class="col-xs-4 box" id='7' data-id=7>+</div>
+    <div class="col-xs-4 box" id='8' data-id=8>+</div>
+  </div>
+</div>
+
+</body>
+
+</html>
