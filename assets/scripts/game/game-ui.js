@@ -10,7 +10,7 @@ const createGameSuccess = (data) => {
     $(this).addClass('hidden')
     $('#row1').fadeIn(500).removeClass('hidden')
     $('#row2').fadeIn(1500).removeClass('hidden')
-    $('#row3').fadeIn(2000).removeClass('hidden')
+    $('#row3').fadeIn(2500).removeClass('hidden')
   })
   $('#change-password').fadeOut('slow', function () {
     $(this).addClass('hidden')
