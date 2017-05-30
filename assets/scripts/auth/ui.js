@@ -52,6 +52,9 @@ const signOutSuccess = (data) => {
   })
   $('#sign-out').fadeOut('slow', function () {
     $(this).addClass('hidden')
+    $('#row1').fadeOut(2500).addClass('hidden')
+    $('#row2').fadeOut(1500).addClass('hidden')
+    $('#row3').fadeOut(500).addClass('hidden')
   })
   $('#message').text('Please sign up or sign in')
   $('#gameStats').fadeOut('slow', function () {
@@ -59,9 +62,6 @@ const signOutSuccess = (data) => {
   })
   $('#create-game').fadeOut('slow', function () {
     $(this).addClass('hidden')
-    $('#row1').fadeOut(2500).addClass('hidden')
-    $('#row2').fadeOut(1500).addClass('hidden')
-    $('#row3').fadeOut(500).addClass('hidden')
   })
   $('#0').off('click', gameEvents.onSelectTile).text('+')
   $('#1').off('click', gameEvents.onSelectTile).text('+')
